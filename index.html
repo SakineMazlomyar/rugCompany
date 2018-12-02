@@ -1,47 +1,47 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Afghan rug</title>
-        <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css">
-        <link rel="stylesheet" href="bootstrap-4.1.3-dist/js/jquary.js">
-        <link rel="stylesheet" href="bootstrap-4.1.3-dist/js/bootstrap.js">
-        <link rel="stylesheet" href="bootstrap-4.1.3-dist/js/popper.js">
-        <link rel="stylesheet" href="ownCssFiles/mobile.css">
-
-       <!--  <link rel="stylesheet" href="ownCssFiles/startPage.css"> -->
-        <link rel="stylesheet" href="ownCssFiles/headerFooter.css">
-        <script src="startPage.js"></script>
-        <script src="logInAndRegisterPage.js"></script>
-    </head>
-    <body onload="init()">
-        <header class="navbar navbar-dark bg-dark container-fluid fixed-top">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#theLinks">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-            <p class="nav-link"> Afghan rug</p>
-            <img src="balush.jpg">
-            <ul class="collapse navbar-collapse navbar-expand-sm navbar-nav" id="theLinks">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Afghan rug</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="ownCssFiles/mobile.css">
+    <link rel="stylesheet" href="ownCssFiles/tablet.css">
+    <script src="startPage.js"></script>
+    <script src="logInAndRegisterPage.js"></script>
+</head>
+<body onload="init()">
+    <header class="navbar navbar-dark bg-dark container-fluid fixed-top">
+        <a class="navbar-brand"> Afghan rug</a>
+        <img class="imgBrand"src="balush.jpg">
+        <button type="button" class="navbar-toggler" data-toggle="collapse"  data-target="#theLinks" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div  class="collapse navbar-collapse navbar-expand-sm" id="theLinks">
+            <ul class="navbar-nav">
                 <li class="nav-item">bascket</li>
                 <h3 class="nav-item">Number of items in the bascket</h3>
-                <a class="nav-item nav-link"><h6 onclick="logInAndRegister()">LogInAndReginster</h6></a>
+                <a class="nav-item"><h6 onclick="logInAndRegister()">LogInAndReginster</h6></a>
             </ul>
-        </header>
-        <section>
+        </div>
+    </header>
 
-        </section>
-        <footer>
-            <ul>
-                <li>Contact</li>
-                <li>Address</li>
-                <li>More info</li>
-                <li>UpPage</li>
-            </ul>
-        </footer>
-        
-    </body>
+    <section>
+
+    </section>
+    <footer>
+        <ul>
+            <li>Contact</li>
+            <li>Address</li>
+            <li>More info</li>
+            <li>UpPage</li>
+        </ul>
+    </footer>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
 </html>

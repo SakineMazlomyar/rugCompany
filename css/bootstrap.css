@@ -206,7 +206,7 @@ figure {
 }
 
 img {
-  width: 5em;
+  vertical-align: middle;
   border-style: none;
 }
 
