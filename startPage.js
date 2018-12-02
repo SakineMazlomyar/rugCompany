@@ -1,5 +1,7 @@
 
-
+//fix navbar bootstrap
+//fix footer 
+//fix section
 
 function init(){
     var rugs = undefined;
