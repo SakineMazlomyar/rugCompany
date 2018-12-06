@@ -1,7 +1,4 @@
 @media screen and (min-width: 500px) {
-    body {
-        background-color: lightgreen;
-    }
     img.imgBrand{
         width: 3em;
     }
