@@ -4,8 +4,10 @@
 
 function init(){
     //This is an asyncron function which means that it will pull the download
-    //prccoess beside to download and go on 
+    //prccoess beside to download and go on // not blocking
     var rugs = undefined;
+    //save items on localstorage
+    var  shoppingCart = localStorage.setObject("shoppingCart", []);
     fetch("rugs.json")
     .then(function(getAllInfo){
         return getAllInfo.json()
@@ -13,7 +15,9 @@ function init(){
     }).then(function(data){
         rugs = data;
         //console.log(data)
-        createMainDiv(rugs)
+        createMainDiv(rugs);
+        
+        
     })
 
 }
@@ -31,6 +35,7 @@ function createMainDiv(rugs){
         divForSingleProduct.appendChild(createColor(rugs[i]))
         divForSingleProduct.appendChild(createImg(rugs[i]))
         divForSingleProduct.appendChild(createPrice(rugs[i]))
+        divForSingleProduct.appendChild(createPutButton(rugs[i]))
         section.appendChild(divForSingleProduct)
     }
 }
@@ -69,4 +74,17 @@ function createPrice(infoAboutProduct){
     var h4 = document.createElement("h4")
     h4.innerText = infoAboutProduct.price;
     return h4
+}
+// Finish the put button and localstorage 
+function createPutButton(infoAboutProduct){
+    var putButton = document.createElement("button");
+    putButton.innerText = "Lägg till product";
+    putButton.onclick = function(){
+        var shoppingCartParsed = localStorage.getObject("shoppingCart");
+        shoppingCartParsed.push(infoAboutProduct);
+        var shoppingCartStringiFied = localStorage.setObject("shoppingCart", shoppingCartParsed);
+        var showNumberOfProduct = document.querySelector("i.fa-shopping-cart");
+        showNumberOfProduct.innerText = shoppingCartParsed.length;
+    }
+    return putButton
 }
