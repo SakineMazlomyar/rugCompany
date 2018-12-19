@@ -1,6 +1,7 @@
-
+var shoppingCart;
 function init(){
-    s()
+    
+    
     //This is an asyncron function which means that it will pull the download
     //prccoess beside to download and go on // not blocking
     // Since this is an asyncron operation then it should have the add item product after
@@ -8,31 +9,27 @@ function init(){
     fetch("rugs.json")
     .then(function(getAllInfo){
         return getAllInfo.json()
-
+        
     }).then(function(data){
         rugs = data;
         //console.log(data)
-
+      
         createMainDiv(rugs);
-
+       
         //So we save the data and if there is no data we put is a null array for now       
+       
+        shoppingCart = [];
+        
+        if (localStorage.shoppingCart) {
+            shoppingCart = localStorage.getObject('shoppingCart')
+        }
+        var shoppingCartParsed = localStorage.getObject("shoppingCart");
+        var i = document.querySelector("i.fa-shopping-cart");
+        i.innerText =  shoppingCartParsed.length;
     })
     
 }
-function s(){
-    var  shoppingCart;
-    if(shoppingCart == null){
-        shoppingCart = localStorage.setObject("shoppingCart", []);
-/*         var shoppingCartParsed = localStorage.getObject("shoppingCart");
-        var showNumberOfProduct = document.querySelector("i.fa-shopping-cart");
-        showNumberOfProduct.innerText = shoppingCartParsed.length; */
-    }
-    else if(shoppingCart != null){
-        shoppingCart = createPutButton(infoAboutProduct)
-    }else{
-        alert("error")
-    }
-}
+
         
 
 function createMainDiv(rugs){
@@ -95,9 +92,12 @@ function createPutButton(infoAboutProduct){
     var putButton = document.createElement("button");
     putButton.innerText = "Lägg till product";
     putButton.onclick = function(){
-        var shoppingCartParsed = localStorage.getObject("shoppingCart");
-        shoppingCartParsed.push(infoAboutProduct);
-        var shoppingCartStringiFied = localStorage.setObject("shoppingCart", shoppingCartParsed);
+    shoppingCart.push(infoAboutProduct)
+    localStorage.setObject('shoppingCart', shoppingCart);
+    var shoppingCartParsed = localStorage.getObject("shoppingCart");
+    var i = document.querySelector("i.fa-shopping-cart");
+    i.innerText =  shoppingCartParsed.length;
+    
     }
     return putButton
 }
