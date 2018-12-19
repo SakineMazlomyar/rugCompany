@@ -1,13 +1,10 @@
 
-//fix navbar bootstrap 
-//fix section
-
 function init(){
+    s()
     //This is an asyncron function which means that it will pull the download
     //prccoess beside to download and go on // not blocking
+    // Since this is an asyncron operation then it should have the add item product after
     var rugs = undefined;
-    //save items on localstorage
-    var  shoppingCart = localStorage.setObject("shoppingCart", []);
     fetch("rugs.json")
     .then(function(getAllInfo){
         return getAllInfo.json()
@@ -15,12 +12,28 @@ function init(){
     }).then(function(data){
         rugs = data;
         //console.log(data)
-        createMainDiv(rugs);
-        
-        
-    })
 
+        createMainDiv(rugs);
+
+        //So we save the data and if there is no data we put is a null array for now       
+    })
+    
 }
+function s(){
+    var  shoppingCart;
+    if(shoppingCart == null){
+        shoppingCart = localStorage.setObject("shoppingCart", []);
+/*         var shoppingCartParsed = localStorage.getObject("shoppingCart");
+        var showNumberOfProduct = document.querySelector("i.fa-shopping-cart");
+        showNumberOfProduct.innerText = shoppingCartParsed.length; */
+    }
+    else if(shoppingCart != null){
+        shoppingCart = createPutButton(infoAboutProduct)
+    }else{
+        alert("error")
+    }
+}
+        
 
 function createMainDiv(rugs){
 
@@ -42,6 +55,7 @@ function createMainDiv(rugs){
 
 function createSingleDiv(){
     var singlDiv = document.createElement("div");
+    singlDiv.classList.add("singleDivDesign")
     return singlDiv
     
 }
@@ -67,12 +81,13 @@ function createColor(infoAboutProduct){
 }
 function createImg(infoAboutProduct){
     var img = document.createElement("img")
+    img.classList.add("imgProduct")
     img.src = infoAboutProduct.image;
     return img
 }
 function createPrice(infoAboutProduct){
     var h4 = document.createElement("h4")
-    h4.innerText = infoAboutProduct.price;
+    h4.innerText = infoAboutProduct.price +"kr";
     return h4
 }
 // Finish the put button and localstorage 
@@ -83,8 +98,6 @@ function createPutButton(infoAboutProduct){
         var shoppingCartParsed = localStorage.getObject("shoppingCart");
         shoppingCartParsed.push(infoAboutProduct);
         var shoppingCartStringiFied = localStorage.setObject("shoppingCart", shoppingCartParsed);
-        var showNumberOfProduct = document.querySelector("i.fa-shopping-cart");
-        showNumberOfProduct.innerText = shoppingCartParsed.length;
     }
     return putButton
 }
