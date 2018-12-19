@@ -2,4 +2,32 @@
     img.imgBrand{
         width: 3em;
     }
+    section{
+        position: relative;
+        top: 7em;
+        margin-bottom: 7em;
+    }
+    .singleDivDesign{
+        position: relative;
+        width: 100%; 
+        text-align: center  
+    }
+    img.imgProduct{
+        width: 50% !important;
+        height: 49em !important;
+    }
+    
+    footer{
+        position: fixed;
+        
+        bottom: 0;
+        width: 100%;
+        height: 5em;
+        background-color:  rgb(53, 52, 53);
+        color: white;
+    }
+    
+   
+    
+    
 }
