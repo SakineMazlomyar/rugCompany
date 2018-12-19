@@ -1,6 +1,31 @@
 @media screen and (max-width: 500px) {
-
     img.imgBrand{
         width: 3em;
     }
+    section{
+        position: relative;
+        top: 4em;
+        margin-bottom: 7em;
+    }
+    .singleDivDesign{
+        position: relative;
+        width: 100%;
+       
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        
+    }
+    footer{
+        position: fixed;
+        
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(53, 52, 53);
+        color: white;
+    }
+    
+   
+    
+    
 }
