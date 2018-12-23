@@ -18,7 +18,7 @@ function createMainDiv(rugs){
         divForSingleProduct.appendChild(createColor(rugs[i]))
         divForSingleProduct.appendChild(createImg(rugs[i]))
         divForSingleProduct.appendChild(createPrice(rugs[i]))
-        divForSingleProduct.appendChild(createDeleteButton(rugs))
+        divForSingleProduct.appendChild(createDeleteButton(rugs, rugs ))
         section.appendChild(divForSingleProduct)
     }
 }
@@ -61,14 +61,19 @@ function createPrice(infoAboutProduct){
     h4.innerText = infoAboutProduct.price +"kr";
     return h4
 }
-function createDeleteButton(infoAboutProduct){
+function createDeleteButton(rugsArray,rugs){
     var deleteButton = document.createElement("button");
     deleteButton.innerText = "Ta bort product";
     deleteButton.onclick = function(){
-    for()
-
-
-
+    for(var i = 0; i<rugsArray.length; i++){
+        rugsArray.splice(rugsArray[i], 1);
+        
+    }
+    var section = document.querySelector("section");
+    section.innerHTML = "";
+    localStorage.setObject("shoppingCart", rugsArray);
+    createMainDiv(rugs)
+    
 
 
     var shoppingCartParsed = localStorage.getObject("shoppingCart");
