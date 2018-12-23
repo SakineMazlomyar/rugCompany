@@ -4,7 +4,7 @@
         "made": "Afghanistan",
         "year": 2018,
         "color": "black",
-        "image": "pictures/black.jpg",
+        "image": "./pictures/black.jpg",
         "price": 13300
 
     },{
@@ -12,14 +12,14 @@
         "made": "Afghanistan",
         "year": 2018,
         "color": "dead",
-        "image": "pictures/dead.jpg",
+        "image": "./pictures/dead.jpg",
         "price": 12200
     },{
         "title": "Afghan rug",
         "made": "Afghanistan",
         "year": 2018,
         "color": "Heart",
-        "image": "pictures/heart.jpg",
+        "image": "./pictures/heart.jpg",
         "price": 11000
     },{
         "title": "Afghan rug",
@@ -33,14 +33,14 @@
         "made": "Afghanistan",
         "year": 2018,
         "color": "Red",
-        "image": "pictures/red.jpg",
+        "image": "./pictures/red.jpg",
         "price": 15000
     }, {
         "title": "Afghan rug",
         "made": "Afghanistan",
         "year": 2018,
         "color": "Baluch",
-        "image": "pictures/balush.jpg",
+        "image": "./pictures/balush.jpg",
         "price": 12000
 
 
