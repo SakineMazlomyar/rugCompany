@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="ownCssFiles/tablet.css">
     <script src="startPage.js"></script>
-    <script src="extention.js"></script>
-    <script src="logInAndRegisterPage.js"></script>
+    <script src="./extentions/extention.js"></script>
+    <script src="./loginSource/login.html"></script>
+    <script src="./loginSource/login.js"></script>
 
 </head>
 <body onload="init()">
@@ -23,14 +24,14 @@
                 <a href="#index.html"><img class="imgBrand"src="balush.jpg"></a>
                 <span class="navbar-brand text-danger"> Afghan rug</span>
             <ul class="navbar-nav" >
-                <a href="kundvagn.html"><i class="fas fa-shopping-cart"></i></a>
+                <a href="./kundvagnSource/kundvagn.html"><i class="fas fa-shopping-cart"></i></a>
                 <li class = "nav-item dropdown">
                     <a class="nav-item dropdown-toggle" data-toggle="dropdown" id="#target_name" onclick="logInAndRegister()">Become a member</a>
                     <di class="dropdown-menu" arial-labelledby="dropdown-target">
                         <ul class="navbar-nav">
                             <a class="dropdown-item">Register</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item">Log in</a>
+                            <a class="dropdown-item" href="./loginSource/login.html">Log in</a>
                         </ul>
                     </di>
                 </li>
