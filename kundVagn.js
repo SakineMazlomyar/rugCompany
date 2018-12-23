@@ -64,21 +64,26 @@ function createPrice(infoAboutProduct){
 function createDeleteButton(rugsArray,rugs){
     var deleteButton = document.createElement("button");
     deleteButton.innerText = "Ta bort product";
+    var shoppingCartParsed = localStorage.getObject("shoppingCart");
+    var i = document.querySelector("i.fa-shopping-cart");
+    i.innerText =  shoppingCartParsed.length;
     deleteButton.onclick = function(){
     for(var i = 0; i<rugsArray.length; i++){
         rugsArray.splice(rugsArray[i], 1);
         
     }
-    var section = document.querySelector("section");
-    section.innerHTML = "";
     localStorage.setObject("shoppingCart", rugsArray);
-    createMainDiv(rugs)
-    
 
 
     var shoppingCartParsed = localStorage.getObject("shoppingCart");
     var i = document.querySelector("i.fa-shopping-cart");
     i.innerText =  shoppingCartParsed.length;
+    var section = document.querySelector("section");
+    section.innerHTML = "";
+    createMainDiv(rugs)
+    
+
+
     
     }
     return deleteButton
