@@ -5,13 +5,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="ownCssFiles/mobile.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="ownCssFiles/tablet.css">
         <script src="kundVagn.js"></script>
         <script src="extention.js"></script>
     </head>
     <body onload="init()">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark container-fluid fixed-top">
+            <button type="button" class="navbar-toggler" data-toggle="collapse"  data-target="#theLinks" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div  class="collapse navbar-collapse" id="theLinks">
+                    <a href="./index.html"><img class="imgBrand"src="balush.jpg"></a>
+                    <span class="navbar-brand text-danger"> Afghan rug</span>
+                <ul class="navbar-nav">
+                    <a href="kundvagn.html"><i class="fas fa-shopping-cart"></i></a>
+                    <li class = "nav-item dropdown">
+                        <a class="nav-item dropdown-toggle" data-toggle="dropdown" id="#target_name" onclick="logInAndRegister()">Become a member</a>
+                        <di class="dropdown-menu" arial-labelledby="dropdown-target">
+                            <ul class="navbar-nav">
+                                <a class="dropdown-item">Register</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item">Log in</a>
+                            </ul>
+                        </di>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <section>
             
         </section>
         
     </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
 </html>
