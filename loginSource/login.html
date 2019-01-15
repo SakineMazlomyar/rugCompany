@@ -5,14 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>log in page</title>
+        <script src="./login.js"></script>
+        <script src="../extentions/extention.js"></script>
     </head>
     <body>
         <form>
-            <label>Type your name</label><br>
-            <input type="text"><br>
+            <label>Type your username</label><br>
+            <input id="username" type="text"><br>
             <label>Type your password</label><br>
-            <input type="text"><br>
-            <button>Login here</button>
+            <input id="password" type="text"><br>
+            <button type="button" onclick="logIn()">Login here</button>
         </form>
     </body>
 </html>
