@@ -22,10 +22,10 @@ function init(){
         
         if (localStorage.shoppingCart) {
             shoppingCart = localStorage.getObject('shoppingCart')
+            var i = document.querySelector("i.fa-shopping-cart");
+            i.innerText =  shoppingCart.length;
         }
-        var shoppingCartParsed = localStorage.getObject("shoppingCart");
-        var i = document.querySelector("i.fa-shopping-cart");
-        i.innerText =  shoppingCartParsed.length;
+
     })
     
 }
