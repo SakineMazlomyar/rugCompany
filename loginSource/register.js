@@ -18,10 +18,6 @@ function registerUser(){
         name: name,
         password: password
     };
-   
-    // We check if the user alreay exist and if so then we stop registeration
-
-    checkExistUser(name, password)
 
     //If the user does not exist then the system will register it
     userRegisteration.push(user)
