@@ -19,7 +19,7 @@ function createMainDiv(rugs){
         divForSingleProduct.appendChild(createImg(rugs[i]))
         divForSingleProduct.appendChild(createPrice(rugs[i]))
         divForSingleProduct.appendChild(createDeleteButton(rugs, rugs ))
-        divForSingleProduct.appendChild(createFinishShopButton())
+        //divForSingleProduct.appendChild(createFinishShopButton())
         section.appendChild(divForSingleProduct)
     }
 }
