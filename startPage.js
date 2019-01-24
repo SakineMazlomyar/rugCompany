@@ -15,6 +15,9 @@ function init(){
         //console.log(data)
       
         createMainDiv(rugs);
+        var buttonLogOut = document.querySelector("button#logOutButton")
+        buttonLogOut.style.opacity = "0"
+        checkSignedInPerson()
        
         //So we save the data and if there is no data we put is a null array for now       
        
@@ -100,4 +103,31 @@ function createPutButton(infoAboutProduct){
     
     }
     return putButton
+}
+
+function checkSignedInPerson(){
+    var order = localStorage.getObject("order");
+    if(order){
+        var paragraph = document.querySelector("p#userLoggedIn");
+        order.forEach(function(element) {
+            paragraph.innerText = "Hi "+ element.username +"!";
+            var buttonLogOut = document.querySelector("button#logOutButton")
+            buttonLogOut.style.opacity = "1"
+            var buttonLogIn = document.querySelector("a#logInButton")
+            buttonLogIn.style.opacity = "0"
+          });
+
+    }
+
+}
+
+function logOut(){
+    var paragraph = document.querySelector("p#userLoggedIn");
+    paragraph.style.display = "none"
+    var buttonLogOut = document.querySelector("button#logOutButton")
+    buttonLogOut.style.opacity = "0"
+    var buttonLogIn = document.querySelector("a#logInButton")
+    buttonLogIn.style.opacity = "1"
+
+
 }
