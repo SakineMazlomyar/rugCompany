@@ -19,7 +19,7 @@ function createMainDiv(rugs){
         divForSingleProduct.appendChild(createImg(rugs[i]))
         divForSingleProduct.appendChild(createPrice(rugs[i]))
         divForSingleProduct.appendChild(createDeleteButton(rugs, rugs ))
-        //divForSingleProduct.appendChild(createFinishShopButton())
+        divForSingleProduct.appendChild(createFinishShopButton())
         section.appendChild(divForSingleProduct)
     }
 }
@@ -90,23 +90,26 @@ function createDeleteButton(rugsArray,rugs){
     return deleteButton
 }
 function createFinishShopButton(){
-    const name = document.querySelector("input#name").value;
-    const password = document.querySelector("input#password").value;
-    var registeration = undefined;
+    var x = undefined;  
     var finishShopButton = document.createElement("button");
     finishShopButton.innerText = "Slurför ditt köp";
-    finishShopButton.onclick = ( makeEmptyShoppingCart => {
-        var userRegisterd = localStorage.getObject("userRegisterd");
-        userRegisterd.foreach(singleUser => {
-            if(name != singleUser.name && password != singleUser.password){
-                
+
+/*     var userRegisterd = localStorage.getObject("userRegisterd");
+    finishShopButton.onclick = function(){
+
+        for(var i = 0; i<userRegisterd.length; i++){
+            if(userRegisterd[i]){
+                x = true;
+                localStorage.setObject("shoppingCart", []);
+                return;
             }
-        })
-        var shoppingCartParsed = localStorage.getObject("shoppingCart");
+            
+        }
+        
+        alert("Du måste loggas in")
 
-    })
+    } */
 
-    console.log("yes")
     return finishShopButton
  
 }
