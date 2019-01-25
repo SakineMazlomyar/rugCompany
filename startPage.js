@@ -15,9 +15,9 @@ function init(){
         //console.log(data)
       
         createMainDiv(rugs);
-        var buttonLogOut = document.querySelector("button#logOutButton")
-        buttonLogOut.style.opacity = "0"
-        checkSignedInPerson()
+/*         var buttonLogOut = document.querySelector("button#logOutButton")
+        buttonLogOut.style.opacity = "0" */
+        //checkSignedInPerson()
        
         //So we save the data and if there is no data we put is a null array for now       
        
@@ -105,7 +105,7 @@ function createPutButton(infoAboutProduct){
     return putButton
 }
 
-function checkSignedInPerson(){
+/* function checkSignedInPerson(){
     var order = localStorage.getObject("order");
     if(order){
         var paragraph = document.querySelector("p#userLoggedIn");
@@ -130,4 +130,4 @@ function logOut(){
     buttonLogIn.style.opacity = "1"
 
 
-}
+} */
