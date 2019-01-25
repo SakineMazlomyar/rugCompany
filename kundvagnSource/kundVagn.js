@@ -2,7 +2,9 @@ function init(){
 
     var rugs = localStorage.getObject("shoppingCart");
     createMainDiv(rugs)
-    //checkSignedInPerson()
+    var buttonLogOut = document.querySelector("button#logOutButton")
+    buttonLogOut.style.opacity = "0"
+    checkSignedInPerson()
 }
 
 
@@ -95,31 +97,38 @@ function createFinishShopButton(){
     var finishShopButton = document.createElement("button");
     finishShopButton.innerText = "Slurför ditt köp";
     finishShopButton.onclick = (function(){
-        var order = localStorage.getObject("order");
-        if(order){
-            var makeEmptyShoppingCart = localStorage.getObject("shoppingCart");
-            localStorage.setObject("shoppingCart", []);
-            alert("Tack för ditt köp!")
-            var section = document.querySelector("section#content");
-            section.innerHTML = "";
-            order.forEach(element => {
-                console.log(element.usersOrder)
-            })
     
-        } else {
-            alert("Du har inte loggats in")
-        }
+    var signedInUser = localStorage.getObject("signedInUser");
+    if(signedInUser.length != 0){
+        var makeEmptyShoppingCart = localStorage.getObject("shoppingCart");
+        localStorage.setObject("shoppingCart", []);
+        alert("Tack för ditt köp!")
+        var section = document.querySelector("section#content");
+        section.innerHTML = "";
+        var order = localStorage.getObject("order");
+        order.forEach(element => {
+            console.log(element.usersOrder);
+            return;
+        
+        })
+
+
+    } else {
+        alert("Du har inte loggats in")
+    }
 
     })
 
     return finishShopButton
  
 }
-/* function checkSignedInPerson(){
-    var order = localStorage.getObject("order");
-    if(order){
+
+
+function checkSignedInPerson(){
+    var signedInUser = localStorage.getObject("signedInUser");
+    if(signedInUser){
         var paragraph = document.querySelector("p#userLoggedIn");
-        order.forEach(function(element) {
+        signedInUser.forEach(function(element) {
             paragraph.innerText = "Hi "+ element.username +"!";
             var buttonLogOut = document.querySelector("button#logOutButton")
             buttonLogOut.style.opacity = "1"
@@ -132,6 +141,8 @@ function createFinishShopButton(){
 }
 
 function logOut(){
+    var signedInUser = localStorage.getObject("signedInUser");
+    localStorage.setObject("signedInUser", []) 
     var paragraph = document.querySelector("p#userLoggedIn");
     paragraph.style.display = "none"
     var buttonLogOut = document.querySelector("button#logOutButton")
@@ -140,4 +151,4 @@ function logOut(){
     buttonLogIn.style.opacity = "1"
 
 
-} */
+}
