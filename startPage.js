@@ -107,19 +107,36 @@ function createPutButton(infoAboutProduct){
 
 function checkSignedInPerson(){
     var signedInUser = localStorage.getObject("signedInUser");
+    var shoppingCart = localStorage.getObject("shoppingCart");
     if(signedInUser){
         var paragraph = document.querySelector("p#userLoggedIn");
         signedInUser.forEach(function(element) {
-
+            
             paragraph.innerText = "Hi "+ element.username +"!";
             var buttonLogOut = document.querySelector("button#logOutButton")
             buttonLogOut.style.opacity = "1"
             var buttonLogIn = document.querySelector("a#logInButton")
             buttonLogIn.style.opacity = "0"
+            if(order){
+                var order = localStorage.getObject("order");
+                order.forEach(function(elementOrder) {
+                    var addedOrder = {
+                        usersOrder: shoppingCart,
+                        username: "",
+                        userId: Math.floor(Math.random() * 10),
+                        orderDate: new Date()
+                    } 
+    
+                //We add new user with new order
+                order.push(addedOrder);
+                var shoppingCart = localStorage.setObject("order", order);
 
-          });
+                })
+            }
+        });
+    
           
-
+    
     }
 
 }
