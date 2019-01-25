@@ -20,6 +20,8 @@
             <div  class="collapse navbar-collapse" id="theLinks">
                     <a href="../index.html"><img class="imgBrand"src="balush.jpg"></a>
                     <span class="navbar-brand text-danger"> Afghan rug</span>
+                    <p id="userLoggedIn"></p>
+        
                 <ul class="navbar-nav">
                     <a href="./kundvagn.html"><i class="fas fa-shopping-cart"></i></a>
                     <li class = "nav-item dropdown">
@@ -28,14 +30,15 @@
                             <ul class="navbar-nav">
                                 <a class="dropdown-item"  href="../loginSource/register.html">Register</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../loginSource/login.html">Log in</a>
+                                <a class="dropdown-item" href="../loginSource/login.html" id="logInButton" id="logInButton">Log in</a>
+                                <button class="dropdown-item" href="../loginSource/login.html" id="logOutButton" onclick="logOut()">Log out</button>
                             </ul>
                         </di>
                     </li>
                 </ul>
             </div>
         </nav>
-        <section>
+        <section id="content">
             
         </section>
         
