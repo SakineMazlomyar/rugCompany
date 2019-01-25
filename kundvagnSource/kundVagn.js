@@ -2,6 +2,7 @@ function init(){
 
     var rugs = localStorage.getObject("shoppingCart");
     createMainDiv(rugs)
+    //checkSignedInPerson()
 }
 
 
@@ -93,23 +94,50 @@ function createFinishShopButton(){
     var x = undefined;  
     var finishShopButton = document.createElement("button");
     finishShopButton.innerText = "Slurför ditt köp";
-
-/*     var userRegisterd = localStorage.getObject("userRegisterd");
-    finishShopButton.onclick = function(){
-
-        for(var i = 0; i<userRegisterd.length; i++){
-            if(userRegisterd[i]){
-                x = true;
-                localStorage.setObject("shoppingCart", []);
-                return;
-            }
-            
+    finishShopButton.onclick = (function(){
+        var order = localStorage.getObject("order");
+        if(order){
+            var makeEmptyShoppingCart = localStorage.getObject("shoppingCart");
+            localStorage.setObject("shoppingCart", []);
+            alert("Tack för ditt köp!")
+            var section = document.querySelector("section#content");
+            section.innerHTML = "";
+            order.forEach(element => {
+                console.log(element.usersOrder)
+            })
+    
+        } else {
+            alert("Du har inte loggats in")
         }
-        
-        alert("Du måste loggas in")
 
-    } */
+    })
 
     return finishShopButton
  
 }
+/* function checkSignedInPerson(){
+    var order = localStorage.getObject("order");
+    if(order){
+        var paragraph = document.querySelector("p#userLoggedIn");
+        order.forEach(function(element) {
+            paragraph.innerText = "Hi "+ element.username +"!";
+            var buttonLogOut = document.querySelector("button#logOutButton")
+            buttonLogOut.style.opacity = "1"
+            var buttonLogIn = document.querySelector("a#logInButton")
+            buttonLogIn.style.opacity = "0"
+          });
+
+    }
+
+}
+
+function logOut(){
+    var paragraph = document.querySelector("p#userLoggedIn");
+    paragraph.style.display = "none"
+    var buttonLogOut = document.querySelector("button#logOutButton")
+    buttonLogOut.style.opacity = "0"
+    var buttonLogIn = document.querySelector("a#logInButton")
+    buttonLogIn.style.opacity = "1"
+
+
+} */
