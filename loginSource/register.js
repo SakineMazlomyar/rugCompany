@@ -33,6 +33,8 @@ function registerUser(){
 
         userRegisteration.push(user)
         localStorage.setObject("userRegisterd", userRegisteration);
+        alert("Nu är du registerat")
+        window.location.href = "./login.html";
     }
 }
 
