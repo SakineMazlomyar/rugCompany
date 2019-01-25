@@ -20,19 +20,22 @@ function logIn(){
         });
         var order = [];
         if(localStorage.order){
-            order = localStorage.getObject("order")
+            order = localStorage.getObject("order");
         }
         if(signedIn){
-            var shoppingCart = localStorage.getObject("shoppingCart");
             var addedOrder = {
-                    usersOrder: shoppingCart,
+                    usersOrder: checkShoppingCart(),
                     username: username,
                     userId: Math.floor(Math.random() * 10),
                     orderDate: new Date()
                 }  
 
+            
+
+            //We add new user with new order
             order.push(addedOrder);
             var shoppingCart = localStorage.setObject("order", order);
+            //We add if someone has singed in
             var account = []
             var user = {
                 username: username,
@@ -42,6 +45,7 @@ function logIn(){
             account = localStorage.setObject("signedInUser", account);
 
             window.location.href = "../index.html";
+    
         } else {
             alert("Du har inte registerat dig än!")
         }
@@ -49,3 +53,12 @@ function logIn(){
     }
 }
 
+
+var shoppingCart = [];
+function checkShoppingCart(){
+    if (localStorage.shoppingCart) {
+        shoppingCart = localStorage.getObject('shoppingCart')
+    }
+    return shoppingCart;
+
+}
