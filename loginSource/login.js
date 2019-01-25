@@ -19,20 +19,26 @@ function logIn(){
             }
         });
         var order = [];
+        if(localStorage.order){
+            order = localStorage.getObject("order")
+        }
         if(signedIn){
             var shoppingCart = localStorage.getObject("shoppingCart");
                 
             var user = localStorage.getObject("userRegisterd");
             var addedOrder;
             user.forEach(customer => {
-                
+                var s = []
                 addedOrder = {
-                    usersOrder: shoppingCart,
-                    username: customer.name,
+                    usersOrder: s.concat(shoppingCart),
+                    username: username,
                     userId: Math.floor(Math.random() * 10),
                     orderDate: new Date()
                 }  
+
+
             });
+
             order.push(addedOrder);
             var shoppingCart = localStorage.setObject("order", order);
             window.location.href = "../index.html";
