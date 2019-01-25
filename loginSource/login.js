@@ -24,23 +24,23 @@ function logIn(){
         }
         if(signedIn){
             var shoppingCart = localStorage.getObject("shoppingCart");
-                
-            var user = localStorage.getObject("userRegisterd");
-            var addedOrder;
-            user.forEach(customer => {
-                var s = []
-                addedOrder = {
-                    usersOrder: s.concat(shoppingCart),
+            var addedOrder = {
+                    usersOrder: shoppingCart,
                     username: username,
                     userId: Math.floor(Math.random() * 10),
                     orderDate: new Date()
                 }  
 
-
-            });
-
             order.push(addedOrder);
             var shoppingCart = localStorage.setObject("order", order);
+            var account = []
+            var user = {
+                username: username,
+                password: password
+            }
+            account.push(user)
+            account = localStorage.setObject("signedInUser", account);
+
             window.location.href = "../index.html";
         } else {
             alert("Du har inte registerat dig än!")
