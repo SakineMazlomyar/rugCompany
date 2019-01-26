@@ -85,6 +85,7 @@ function createDeleteButton(rugsArray,rugs){
     var section = document.querySelector("section");
     section.innerHTML = "";
     createMainDiv(rugs)
+    updateOrder()
     
 
 
