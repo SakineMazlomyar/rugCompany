@@ -153,3 +153,32 @@ function logOut(){
 
 
 }
+function checkSignedInPerson(){
+    var signedInUser = localStorage.getObject("signedInUser");
+    if(signedInUser){
+        var paragraph = document.querySelector("p#userLoggedIn");
+        signedInUser.forEach(function(element) {
+            
+            paragraph.innerText = "Hi "+ element.username +"!";
+            var buttonLogOut = document.querySelector("button#logOutButton")
+            buttonLogOut.style.opacity = "1"
+            var buttonLogIn = document.querySelector("a#logInButton")
+            buttonLogIn.style.opacity = "0"
+            updateOrder(element.username)
+        });
+    }
+
+}
+function updateOrder(name){
+    var shoppingCart = localStorage.getObject("shoppingCart");
+    localStorage.removeItem("order");
+    var updateOrder = []
+    var oneUpdated = {
+        username: name,
+        usersOrder: shoppingCart
+    }
+    updateOrder.push(oneUpdated)
+    localStorage.setObject("order", updateOrder);
+    
+
+}
