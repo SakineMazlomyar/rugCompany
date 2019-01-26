@@ -100,6 +100,7 @@ function createPutButton(infoAboutProduct){
     var shoppingCartParsed = localStorage.getObject("shoppingCart");
     var i = document.querySelector("i.fa-shopping-cart");
     i.innerText =  shoppingCartParsed.length;
+    updateOrder()
     
     }
     return putButton
@@ -107,7 +108,6 @@ function createPutButton(infoAboutProduct){
 
 function checkSignedInPerson(){
     var signedInUser = localStorage.getObject("signedInUser");
-    var shoppingCart = localStorage.getObject("shoppingCart");
     if(signedInUser){
         var paragraph = document.querySelector("p#userLoggedIn");
         signedInUser.forEach(function(element) {
@@ -117,26 +117,8 @@ function checkSignedInPerson(){
             buttonLogOut.style.opacity = "1"
             var buttonLogIn = document.querySelector("a#logInButton")
             buttonLogIn.style.opacity = "0"
-            if(order){
-                var order = localStorage.getObject("order");
-                order.forEach(function(elementOrder) {
-                    var addedOrder = {
-                        usersOrder: shoppingCart,
-                        username: "",
-                        userId: Math.floor(Math.random() * 10),
-                        orderDate: new Date()
-                    } 
-    
-                //We add new user with new order
-                order.push(addedOrder);
-                var shoppingCart = localStorage.setObject("order", order);
-
-                })
-            }
+            updateOrder()
         });
-    
-          
-    
     }
 
 }
@@ -151,5 +133,18 @@ function logOut(){
     var buttonLogIn = document.querySelector("a#logInButton")
     buttonLogIn.style.opacity = "1"
 
+
+}
+
+function updateOrder(){
+    var shoppingCart = localStorage.getObject("shoppingCart");
+    localStorage.removeItem("order");
+    var updateOrder = []
+    var oneUpdated = {
+        usersOrder: shoppingCart,
+    }
+    updateOrder.push(oneUpdated)
+    localStorage.setObject("order", updateOrder);
+    
 
 }
