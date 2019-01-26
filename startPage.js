@@ -117,7 +117,7 @@ function checkSignedInPerson(){
             buttonLogOut.style.opacity = "1"
             var buttonLogIn = document.querySelector("a#logInButton")
             buttonLogIn.style.opacity = "0"
-            updateOrder()
+            updateOrder(element.username)
         });
     }
 
@@ -136,12 +136,16 @@ function logOut(){
 
 }
 
-function updateOrder(){
+function updateOrder(name){
     var shoppingCart = localStorage.getObject("shoppingCart");
     localStorage.removeItem("order");
     var updateOrder = []
+    if(localStorage.order){
+        updateOrder = localStorage.getObject("order")
+    }
     var oneUpdated = {
-        usersOrder: shoppingCart,
+        username: name,
+        usersOrder: shoppingCart
     }
     updateOrder.push(oneUpdated)
     localStorage.setObject("order", updateOrder);
