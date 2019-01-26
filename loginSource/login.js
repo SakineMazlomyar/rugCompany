@@ -25,12 +25,7 @@ function logIn(){
         if(signedIn){
             var addedOrder = {
                     usersOrder: checkShoppingCart(),
-                    username: username,
-                    userId: Math.floor(Math.random() * 10),
-                    orderDate: new Date()
                 }  
-
-            
 
             //We add new user with new order
             order.push(addedOrder);
