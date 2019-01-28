@@ -1,4 +1,4 @@
-var shoppingCart;
+//var shoppingCart;
 function init(){
     
     
@@ -21,7 +21,7 @@ function init(){
        
         //So we save the data and if there is no data we put is a null array for now       
        
-        shoppingCart = [];
+        var shoppingCart = [];
         
         if (localStorage.shoppingCart) {
             shoppingCart = localStorage.getObject('shoppingCart')
@@ -91,20 +91,27 @@ function createPrice(infoAboutProduct){
     return h4
 }
 // Finish the put button and localstorage 
-function createPutButton(infoAboutProduct){
+function createPutButton(listOfProducts){
     var putButton = document.createElement("button");
     putButton.innerText = "Lägg till product";
-    putButton.onclick = function(){
-    shoppingCart.push(infoAboutProduct)
-    localStorage.setObject('shoppingCart', shoppingCart);
-    var shoppingCartParsed = localStorage.getObject("shoppingCart");
-    var i = document.querySelector("i.fa-shopping-cart");
-    i.innerText =  shoppingCartParsed.length;
-    updateOrder()
-    
-    }
+    putButton.onclick = function(){ addProduct(listOfProducts)}
     return putButton
 }
+function addProduct(listOfProducts){
+    var x = localStorage.getObject('shoppingCart');
+    var date = new Date();
+    var timeStamp = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds();
+    listOfProducts.id = timeStamp;
+ 
+    x.push(listOfProducts);
+    localStorage.setObject('shoppingCart', x);;
+
+    var i = document.querySelector("i.fa-shopping-cart");
+    i.innerText =  x.length;
+    updateOrder()
+
+}
+
 
 function checkSignedInPerson(){
     var signedInUser = localStorage.getObject("signedInUser");
