@@ -21,7 +21,7 @@ function createMainDiv(rugs){
         divForSingleProduct.appendChild(createColor(rugs[i]))
         divForSingleProduct.appendChild(createImg(rugs[i]))
         divForSingleProduct.appendChild(createPrice(rugs[i]))
-        divForSingleProduct.appendChild(createDeleteButton(rugs, rugs ))
+        divForSingleProduct.appendChild(createDeleteButton(rugs[i]))
         divForSingleProduct.appendChild(createFinishShopButton())
         section.appendChild(divForSingleProduct)
     }
@@ -65,34 +65,37 @@ function createPrice(infoAboutProduct){
     h4.innerText = infoAboutProduct.price +"kr";
     return h4
 }
-function createDeleteButton(rugsArray,rugs){
+function createDeleteButton(rugs){
     var deleteButton = document.createElement("button");
     deleteButton.innerText = "Ta bort product";
+
     var shoppingCartParsed = localStorage.getObject("shoppingCart");
     var i = document.querySelector("i.fa-shopping-cart");
     i.innerText =  shoppingCartParsed.length;
     deleteButton.onclick = function(){
-    for(var i = 0; i<rugsArray.length; i++){
-        rugsArray.splice(rugsArray[i], 1);
+        var shoppingCartJson= localStorage.getObject("shoppingCart");
+        var index = 0;
         
+        for(var i = 0; i < shoppingCartJson.length; i++) {
+            if(rugs.id == shoppingCartJson[i].id) {
+               index = i;
+            }
+        };
+        
+        shoppingCartJson.splice(index, 1);
+        localStorage.setObject("shoppingCart", shoppingCartJson);
+        var i = document.querySelector("i.fa-shopping-cart");
+        i.innerText =  shoppingCartJson.length;
+        var section = document.querySelector("section");
+        section.innerHTML = "";
+        init()
+        updateOrder()
     }
-    localStorage.setObject("shoppingCart", rugsArray);
-
-
-    var shoppingCartParsed = localStorage.getObject("shoppingCart");
-    var i = document.querySelector("i.fa-shopping-cart");
-    i.innerText =  shoppingCartParsed.length;
-    var section = document.querySelector("section");
-    section.innerHTML = "";
-    createMainDiv(rugs)
-    updateOrder()
     
-
-
-    
-    }
     return deleteButton
 }
+
+
 function createFinishShopButton(){
     var x = undefined;  
     var finishShopButton = document.createElement("button");
