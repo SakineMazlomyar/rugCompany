@@ -1,7 +1,8 @@
 function init(){
-
     var rugs = localStorage.getObject("shoppingCart");
     createMainDiv(rugs)
+    var i = document.querySelector("i.fa-shopping-cart");
+    i.innerText =  rugs.length;
     var buttonLogOut = document.querySelector("button#logOutButton")
     buttonLogOut.style.opacity = "0"
     checkSignedInPerson()
@@ -111,6 +112,10 @@ function createFinishShopButton(){
         var makeEmptyShoppingCart = localStorage.getObject("shoppingCart");
         localStorage.setObject("shoppingCart", []);
         alert("Tack för ditt köp!")
+        var historicSite = document.createElement("a");
+        historicSite.innerText = "Titta på ditt historisk shop";
+        historicSite.href = "./historic.html";
+        document.body.appendChild(historicSite);
         var section = document.querySelector("section#content");
         section.innerHTML = "";
         var order = localStorage.getObject("order");
