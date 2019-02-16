@@ -11,6 +11,9 @@ function init(){
 function createMainDiv(rugs){
 
     var section = document.querySelector("section");
+    section.style.marginTop = "1.5em";
+    section.style.display = "flex";
+    section.style.flexDirection = "row";
    
     for(var i = 0; i <rugs.length; i++){
 
@@ -69,31 +72,32 @@ function createDeleteButton(rugs){
     var deleteButton = document.createElement("button");
     deleteButton.innerText = "Ta bort product";
 
-    var shoppingCartParsed = localStorage.getObject("shoppingCart");
-    var i = document.querySelector("i.fa-shopping-cart");
-    i.innerText =  shoppingCartParsed.length;
-    deleteButton.onclick = function(){
-        var shoppingCartJson= localStorage.getObject("shoppingCart");
-        var index = 0;
-        
-        for(var i = 0; i < shoppingCartJson.length; i++) {
-            if(rugs.id == shoppingCartJson[i].id) {
-               index = i;
-            }
-        };
-        
-        shoppingCartJson.splice(index, 1);
-        localStorage.setObject("shoppingCart", shoppingCartJson);
-        var i = document.querySelector("i.fa-shopping-cart");
-        i.innerText =  shoppingCartJson.length;
-        var section = document.querySelector("section");
-        section.innerHTML = "";
-        init()
-        updateOrder()
+    deleteButton.onclick = function(){ removeProduct(rugs)}
+    return deleteButton
+    
+}
+    
+function removeProduct(rugs) {
+    var shoppingCartJson = localStorage.getObject("shoppingCart");
+    var index = undefined;
+    for(var s = 0; s<shoppingCartJson.length; s++) {
+        if(rugs.id == shoppingCartJson[s].id) {
+            index = s
+            shoppingCartJson.splice(index, 1);
+            localStorage.setObject("shoppingCart", shoppingCartJson);
+            var section = document.querySelector("section");
+            section.innerHTML = ""
+            init(rugs)
+            updateOrder()
+            var i = document.querySelector("i.fa-shopping-cart");
+            i.innerText =  shoppingCartJson.length;
+
+        }
     }
     
-    return deleteButton
 }
+
+
 
 
 function createFinishShopButton(){
