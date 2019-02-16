@@ -55,7 +55,10 @@ function createMainDiv(rugs){
 
 function createSingleDiv(){
     var singlDiv = document.createElement("div");
-    singlDiv.classList.add("singleDivDesign")
+    singlDiv.style.width = "100%";
+    singlDiv.style.textAlign = "center";
+    singlDiv.style.position= "relative";
+    //singlDiv.classList.add("singleDivDesign")
     return singlDiv
     
 }
