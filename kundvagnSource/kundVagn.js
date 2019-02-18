@@ -105,25 +105,30 @@ function createFinishShopButton(){
     var x = undefined;  
     var finishShopButton = document.createElement("button");
     finishShopButton.innerText = "Slurför ditt köp";
-    finishShopButton.onclick = (function(){
-    
+    finishShopButton.onclick = (element => {
+
     var signedInUser = localStorage.getObject("signedInUser");
-    if(signedInUser.length != 0){
-        var makeEmptyShoppingCart = localStorage.getObject("shoppingCart");
-        localStorage.setObject("shoppingCart", []);
-        alert("Tack för ditt köp!")
-        var historicSite = document.createElement("a");
-        historicSite.innerText = "Titta på ditt historisk shop";
-        historicSite.href = "./historic.html";
-        document.body.appendChild(historicSite);
-        var section = document.querySelector("section#content");
-        section.innerHTML = "";
-        var order = localStorage.getObject("order");
-        order.forEach(element => {
-            console.log(element.usersOrder);
-            return;
-        
-        })
+    if(signedInUser) {
+        var length = signedInUser.length
+        if(length !== 0) {
+            localStorage.setObject("shoppingCart", []);
+            alert("Tack för ditt köp!")
+            var historicSite = document.createElement("a");
+            historicSite.innerText = "Titta på ditt historisk shop";
+            historicSite.href = "./historic.html";
+            document.body.appendChild(historicSite);
+            var section = document.querySelector("section#content");
+            section.innerHTML = "";
+            var order = localStorage.getObject("order");
+            order.forEach(element => {
+                console.log(element.usersOrder);
+                return;
+            
+            })
+
+        } else {
+            alert("Du har inte loggats in")
+        }
 
 
     } else {
