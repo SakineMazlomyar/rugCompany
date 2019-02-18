@@ -1,7 +1,4 @@
-//var shoppingCart;
-function init(){
-    
-    
+function init(){ 
     //This is an asyncron function which means that it will pull the download
     //prccoess beside to download and go on // not blocking
     // Since this is an asyncron operation then it should have the add item product after
@@ -12,17 +9,19 @@ function init(){
         
     }).then(function(data){
         rugs = data;
-        //console.log(data)
-      
         createMainDiv(rugs);
         var buttonLogOut = document.querySelector("button#logOutButton")
         buttonLogOut.style.opacity = "0"
         checkSignedInPerson()
        
-        //So we save the data and if there is no data we put is a null array for now       
+        //So we save the data and if there is no data we put is a null array for now 
+        var signedInUser = localStorage.getObject("signedInUser");
+        if(!signedInUser) {
+
+            localStorage.setObject('shoppingCart', [])
+        }
        
         var shoppingCart = [];
-        
         if (localStorage.shoppingCart) {
             shoppingCart = localStorage.getObject('shoppingCart')
             var i = document.querySelector("i.fa-shopping-cart");
@@ -107,7 +106,7 @@ function addProduct(listOfProducts){
     listOfProducts.id = timeStamp;
  
     x.push(listOfProducts);
-    localStorage.setObject('shoppingCart', x);;
+    localStorage.setObject('shoppingCart', x);
 
     var i = document.querySelector("i.fa-shopping-cart");
     i.innerText =  x.length;
