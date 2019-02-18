@@ -1,7 +1,7 @@
 function checkHistoric(){
     var historicSite = document.createElement("a");
     historicSite.innerText = "Vill gå tillbaka till kundvagn";
-    historicSite.href= "./kundVagn.html";
+    historicSite.href= "./kundvagn.html";
     historicSite.style.fontSize ="1.5em";
     historicSite.style.color ="blue";
     document.body.appendChild(historicSite)
