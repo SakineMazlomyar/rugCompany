@@ -1,4 +1,7 @@
 @media screen and (min-width: 500px) {
+    .historic {
+        opacity: 1;
+    }
     img.imgBrand{
         width: 3em;
     }
