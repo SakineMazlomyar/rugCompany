@@ -1,4 +1,5 @@
 function init(){
+    displayHistoric()
     var rugs = localStorage.getObject("shoppingCart");
     createMainDiv(rugs)
     var i = document.querySelector("i.fa-shopping-cart");
@@ -142,8 +143,6 @@ function createFinishShopButton(){
  
 }
 
-
-var historic = localStorage.getObject("historic");
 function checkSignedInPerson(){
         var paragraph = document.querySelector("p#userLoggedIn");
         signedInUser.forEach(function(element) {
@@ -166,7 +165,9 @@ function logOut(){
     buttonLogOut.style.opacity = "0"
     var buttonLogIn = document.querySelector("a#logInButton")
     buttonLogIn.style.opacity = "1"
-
+    var a = document.querySelector("a.historic");
+    a.style.opacity = "0";
+    
 
 
 }
@@ -199,4 +200,19 @@ function updateOrder(name){
     localStorage.setObject("order", updateOrder);
     
 
+}
+
+function displayHistoric(){
+    var historic = localStorage.getObject("historic")
+    var signedInUser = localStorage.getObject("signedInUser");
+    if(signedInUser.length != 0) {   
+        var historicSite = document.createElement("a");
+        historicSite.innerText = "Titta på ditt historik shop";
+        historicSite.href = "./historic.html";
+        historicSite.classList.add("historic");
+        document.body.appendChild(historicSite);
+    
+        
+
+    }
 }

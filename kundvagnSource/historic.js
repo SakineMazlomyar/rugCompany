@@ -67,3 +67,5 @@ function createPrice(infoAboutProduct){
     h4.innerText = infoAboutProduct.price +"kr";
     return h4
 }
+
+
