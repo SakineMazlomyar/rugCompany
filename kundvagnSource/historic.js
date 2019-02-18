@@ -1,8 +1,12 @@
 function checkHistoric(){
+    var historicSite = document.createElement("a");
+    historicSite.innerText = "Vill gå tillbaka till kundvagn";
+    historicSite.href= "./kundvagn.html";
+    historicSite.style.fontSize ="1.5em";
+    historicSite.style.color ="blue";
     document.body.appendChild(historicSite)
-    var rugs = localStorage.getObject("order");
-    var rugsHistoric = rugs[0].usersOrder;
-    createMainDiv(rugsHistoric)
+    var rugs = localStorage.getObject("historic");
+    createMainDiv(rugs)
 }
 
 
