@@ -116,10 +116,6 @@ function createFinishShopButton(){
             var historic = localStorage.setObject("historic", x);
             localStorage.setObject("shoppingCart", []);
             alert("Tack för ditt köp!")
-            var historicSite = document.createElement("a");
-            historicSite.innerText = "Titta på ditt historisk shop";
-            historicSite.href = "./historic.html";
-            document.body.appendChild(historicSite);
             var section = document.querySelector("section#content");
             section.innerHTML = "";
             historic.forEach(element => {
