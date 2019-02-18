@@ -39,7 +39,7 @@ function logIn(){
             account.push(user)
             account = localStorage.setObject("signedInUser", account);
 
-            window.location.href = "../index.html";
+            window.location.href = "../kundvagnSource/kundvagn.html";
     
         } else {
             alert("Du har inte registerat dig än!")
